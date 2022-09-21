@@ -12,6 +12,14 @@ public class Player : MonoBehaviour
     public int Health { get;private set; }
 
     public event UnityAction<int> HealthChanged;
+    
+    private void Start()
+    {
+        _currentHealth = 100;
+        _treatment = 10;
+        _damage = 10;
+        Health = _currentHealth;
+    }
 
     public void ApplyDamage()
     {
@@ -25,13 +33,5 @@ public class Player : MonoBehaviour
         Health += _treatment;
 
         _healthBar.OnHealthChanged();
-    }
-
-    private void Start()
-    {
-        _currentHealth = 100;
-        _treatment = 10;
-        _damage = 10;
-        Health = _currentHealth;
-    }
+    }    
 }
